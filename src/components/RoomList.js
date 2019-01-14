@@ -27,10 +27,9 @@ class RoomList extends Component {
         
           {
             this.state.rooms.map(room => (
-       
               <a className="rooms mdl-navigation__link"
               key={room.key}
-                key={room.key}>
+              >
                 {room.name}
               </a>
           

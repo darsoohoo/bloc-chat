@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
+import ChatRoom from './components/ChatRoom';
 
 
 
@@ -39,13 +40,10 @@ class App extends Component {
           backgroundRepeat: 'no-repeat',}} >
             <header className="mdl-layout__header mdl-layout__header--transparent">
             <div className="mdl-layout__header-row">
-          
-      
               <div className="mdl-layout-spacer"></div>
-          
-              <nav class="mdl-navigation">
-                <a class="mdl-navigation__link" href="">Your Name</a>
-                <a class="mdl-navigation__link" href="">Sign in</a>
+              <nav className="mdl-navigation">
+                <a className="mdl-navigation__link" href="">Your Name</a>
+                <a className="mdl-navigation__link" href="">Sign in</a>
               </nav>
             </div>
           </header>
@@ -53,15 +51,14 @@ class App extends Component {
             <span className="mdl-layout-title">Chat Rooms</span>
             <nav className="mdl-navigation">
               <RoomList firebase={firebase} />
-              <div>
-         
-          </div>
             </nav>
           </div>
           <main className="mdl-layout__content">
 
 
-          <div className="flex">
+          <div className="chat-box">
+          <ChatRoom />
+
 
 
           </div>
