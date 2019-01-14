@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
+import ChatRoom from './components/ChatRoom';
+
+
 
 
 // Initialize Firebase
@@ -14,21 +17,61 @@ var config = {
     messagingSenderId: "565757088269"
   };
   firebase.initializeApp(config);
+
+
  
 
 class App extends Component {
 
+  
+
   render() {
     return (
-      <div className="App">
-        <header>
-        </header>
-        <main>
-        <RoomList firebase={firebase} />
-        </main>
-      </div>
-    );
-  }
-}
+     
+      
+ 
+      <section >
+        <div 
+          className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+          mdl-layout--fixed-header"
+          style={{  backgroundImage: "url(" + "https://cdn.vox-cdn.com/uploads/chorus_image/image/45737830/Screen_2BShot_2B2015-02-20_2Bat_2B4.31.49_2BPM.0.0.png" + ")",
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',}} >
+            <header className="mdl-layout__header mdl-layout__header--transparent">
+            <div className="mdl-layout__header-row">
+              <div className="mdl-layout-spacer"></div>
+              <nav className="mdl-navigation">
+                <a className="mdl-navigation__link" href="">Your Name</a>
+                <a className="mdl-navigation__link" href="">Sign in</a>
+              </nav>
+            </div>
+          </header>
+          <div className="mdl-layout__drawer">
+            <span className="mdl-layout-title">Chat Rooms</span>
+            <nav className="mdl-navigation">
+              <RoomList firebase={firebase} />
+            </nav>
+          </div>
+          <main className="mdl-layout__content">
+
+
+          <div className="chat-box">
+          <ChatRoom />
+
+
+
+          </div>
+
+          </main>
+        </div>
+      
+
+      </section>
+
+
+          );
+        }
+      }
 
 export default App;

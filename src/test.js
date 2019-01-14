@@ -25,16 +25,12 @@ class RoomList extends Component {
         return (
         <section className="mdl-navigation__link" className="rooms">
         
+
           {
             this.state.rooms.map(room => (
-              <a className="rooms mdl-navigation__link"
-              key={room.key}
-              >
+            <div key={room.key}>
                 {room.name}
-              </a>
-          
-
-
+            </div>
 
             )
         )

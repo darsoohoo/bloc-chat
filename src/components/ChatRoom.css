@@ -1,0 +1,18 @@
+.chat-room {
+    display: flex;
+    color: black;
+    border-color: black;
+    border-style: solid;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  
