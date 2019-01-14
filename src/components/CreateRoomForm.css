@@ -1,0 +1,8 @@
+#create-room-form {
+    display: block;
+    -webkit-flex-shrink: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    padding: 1px 40px;
+    margin: 0;
+}

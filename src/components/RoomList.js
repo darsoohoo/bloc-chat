@@ -23,7 +23,7 @@ class RoomList extends Component {
 
     render() {
         return (
-        <section className="mdl-navigation__link" className="rooms">
+        <section id="room-link" className="room-link mdl-navigation__link" className="rooms">
         
           {
             this.state.rooms.map(room => (

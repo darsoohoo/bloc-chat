@@ -3,6 +3,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import ChatRoom from './components/ChatRoom';
+import CreateRoomForm from './components/CreateRoomForm';
 
 
 
@@ -48,7 +49,8 @@ class App extends Component {
             </div>
           </header>
           <div className="mdl-layout__drawer">
-            <span className="mdl-layout-title">Chat Rooms</span>
+            <span className="mdl-layout-title">Bloc Chat</span>
+            <CreateRoomForm />
             <nav className="mdl-navigation">
               <RoomList firebase={firebase} />
             </nav>
