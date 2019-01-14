@@ -31,34 +31,40 @@ class App extends Component {
  
       <section >
         <div 
-          className="demo-layout-transparent mdl-layout mdl-js-layout"
+          className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+          mdl-layout--fixed-header"
           style={{  backgroundImage: "url(" + "https://cdn.vox-cdn.com/uploads/chorus_image/image/45737830/Screen_2BShot_2B2015-02-20_2Bat_2B4.31.49_2BPM.0.0.png" + ")",
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',}} >
-          <header className="mdl-layout__header mdl-layout__header--transparent">
+            <header className="mdl-layout__header mdl-layout__header--transparent">
             <div className="mdl-layout__header-row">
-           
-             <span className="mdl-layout-title">Bloc Chat</span>
-    
+          
+      
               <div className="mdl-layout-spacer"></div>
-  
-
+          
+              <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Your Name</a>
+                <a class="mdl-navigation__link" href="">Sign in</a>
+              </nav>
             </div>
           </header>
           <div className="mdl-layout__drawer">
-            <span className="mdl-layout-title">Title</span>
+            <span className="mdl-layout-title">Chat Rooms</span>
             <nav className="mdl-navigation">
-              <a className="mdl-navigation__link" href="">Link</a>
-              <a className="mdl-navigation__link" href="">Link</a>
-              <a className="mdl-navigation__link" href="">Link</a>
-              <a className="mdl-navigation__link" href="">Link</a>
+              <RoomList firebase={firebase} />
               <div>
-          <RoomList firebase={firebase} />
+         
           </div>
             </nav>
           </div>
           <main className="mdl-layout__content">
+
+
+          <div className="flex">
+
+
+          </div>
 
           </main>
         </div>
