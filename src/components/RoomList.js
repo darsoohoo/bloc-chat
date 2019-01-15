@@ -22,19 +22,6 @@ class RoomList extends Component {
           room.key = snapshot.key;
           this.setState({ rooms: this.state.rooms.concat( room ) })
         });
-    
-        this.roomsRef.on('child_removed', snapshot => {
-          this.setState({rooms: this.state.rooms.filter((room) => room.key !== snapshot.key)});
-        });
-    
-        this.roomsRef.on('child_changed', snapshot => {
-          /*let changedRoom = this.state.rooms.filter((room) => room.key === snapshot.key)[0];
-          let allRooms = this.state.rooms.filter((room) => room.key !== snapshot.key);
-          changedRoom.name = snapshot.val().name;
-          allRooms.concat(changedRoom);
-          console.log(allRooms);
-          this.setState({rooms: allRooms});*/
-        });
       }
     
       handleChange(event) {
