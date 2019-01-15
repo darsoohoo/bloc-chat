@@ -22,15 +22,12 @@ class RoomList extends Component {
           room.key = snapshot.key;
           this.setState({ rooms: this.state.rooms.concat( room ) })
         });
-    
       }
     
       handleChange(event) {
         this.setState({newRoomName: event.target.value});
       }
       
-
-
       handleCreate(event) {
         event.preventDefault();
         if(this.state.newRoomName !== '' ) {
