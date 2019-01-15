@@ -55,9 +55,6 @@ class RoomList extends Component {
     render() {
         return (
             <section  className="rooms create-room-form">
-                   
-          
-          
                 <div className="flex-container create-room-form" >
                     <form className="create-room create-room-form" onSubmit={(e) => this.handleCreate(e)}>
                         <div className="flex-container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -68,23 +65,19 @@ class RoomList extends Component {
                     </form>
                     <ul className="mdl-navigation room-list">
 
-                  
-                {
-                this.state.rooms.map(room => (
-            
-                <li className="room-item mdl-navigation__link"
-                key={room.key}
-                >
-                    {room.name}
-                </li>
-                )
-            )
-                }
-               
-                </ul>   
+                        {
+                        this.state.rooms.map(room => (
+                        <li className="room-item mdl-navigation__link"
+                        key={room.key}
+                        >
+                            {room.name}
+                        </li>
+                        )
+                    )
+                        }
+                    
+                    </ul>   
                 </div>
-                           
-        
             </section>
         );
     }

@@ -52,22 +52,9 @@ class App extends Component {
             </nav>
           </div>
           <main className="mdl-layout__content">
-
-
-          
-      
-
-
-
-          
-
           </main>
         </div>
-      
-
       </section>
-
-
           );
         }
       }
