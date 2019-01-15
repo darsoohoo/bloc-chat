@@ -35,7 +35,7 @@ class App extends Component {
         <div 
           className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
           mdl-layout--fixed-header"
-          style={{  backgroundImage: "url(" + "https://cdn.vox-cdn.com/uploads/chorus_image/image/45737830/Screen_2BShot_2B2015-02-20_2Bat_2B4.31.49_2BPM.0.0.png" + ")",
+          style={{  backgroundImage: "url(" + "http://i.imgur.com/HUgVfve.png" + ")",
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',}} >
