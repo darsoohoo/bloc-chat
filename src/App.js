@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
-import CreateRoomForm from './components/CreateRoomForm';
+
 
 
 
@@ -17,6 +17,8 @@ var config = {
     messagingSenderId: "565757088269"
   };
   firebase.initializeApp(config);
+
+
 
 
 class App extends Component {
@@ -45,7 +47,6 @@ class App extends Component {
           </header>
           <div className="mdl-layout__drawer">
             <span className="mdl-layout-title">Bloc Chat</span>
-            <CreateRoomForm />
             <nav className="mdl-navigation">
               <RoomList firebase={firebase} />
             </nav>
