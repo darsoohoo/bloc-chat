@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
-import ChatRoom from './components/ChatRoom';
 import CreateRoomForm from './components/CreateRoomForm';
 
 
@@ -20,11 +19,7 @@ var config = {
   firebase.initializeApp(config);
 
 
- 
-
 class App extends Component {
-
-  
 
   render() {
     return (
@@ -58,12 +53,12 @@ class App extends Component {
           <main className="mdl-layout__content">
 
 
-          <div className="chat-box">
-          <ChatRoom />
+          
+      
 
 
 
-          </div>
+          
 
           </main>
         </div>

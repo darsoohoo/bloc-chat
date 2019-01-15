@@ -8,7 +8,7 @@ class ChatRoom extends Component {
 
     render() {
         return (
-            <section >
+            <section className="chat-box" >
                 <div className="flex-container" id="chat-window">
                     <div className="flex-container" id="chat-log">
                         <div className="flex-container" id="chat-input">
@@ -20,7 +20,7 @@ class ChatRoom extends Component {
                             </form>
                         </div>                      
                     </div>
-                </div>
+                </div>  
             </section>
 
         )

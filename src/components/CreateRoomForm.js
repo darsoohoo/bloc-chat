@@ -4,6 +4,8 @@ import './CreateRoomForm.css'
 class CreateRoomForm extends Component {
     constructor(props) {
         super(props);
+
+     
     }
 
     render() {
@@ -14,6 +16,7 @@ class CreateRoomForm extends Component {
                     <input className="flex-container mdl-textfield__input" type="text" id="sample3"/>
                     <label className="flex-container mdl-textfield__label" for="sample3">Create a room...</label>
                 </div>
+                <button className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addEthereum()" type="button">Create</button>
             </form>
         </div>  
         );

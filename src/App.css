@@ -5,3 +5,7 @@
 .mdl-layout__drawer {
     color: black;
 }
+
+.mdl-navigation {
+    margin-left: 8px;
+}
