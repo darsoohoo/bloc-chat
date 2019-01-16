@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
+import MessageList from './components/MessageList';
 
 
 
@@ -52,6 +53,7 @@ class App extends Component {
             </nav>
           </div>
           <main className="mdl-layout__content">
+          <MessageList firebase={firebase} />
           </main>
         </div>
       </section>
