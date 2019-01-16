@@ -14,7 +14,7 @@ class MessageList extends Component {
         this.messagesRef = this.props.firebase.database().ref('messages');
     }
 
-    componentDid() {
+    componentDidMount() {
         this.messagesRef.on('child_added', snapshot => {
             const message = snapshot.val();
             message.key = snapshot.key;
@@ -26,16 +26,27 @@ class MessageList extends Component {
         this.setState({ newMessage: event.target.value});
     }
 
+    timeConverter(unix_time){
+        const date = new Date(unix_time);
+        const month = date.getUTCMonth(unix_time);
+        const day = date.getDate();
+        const hours = date.getHours()< 12 ? date.getHours() : date.getHours() - 12 ;
+        const amPm = date.getHours() < 12 ? " AM" : " PM";
+        const minutes =  date.getMinutes();
+        const formattedTime = (month + 1) + '/' + day + ' ' + hours + ':' + minutes + amPm + ' ' ;
+        return formattedTime;
+      }
 
 
-    sendMessage(event) {
+
+    sendMessage(event, activeRoomId) {
         event.preventDefault();
         if(this.state.newMessage !== '') {
             this.messagesRef.push({
                 content: this.state.newMessage,
                 username: '',
-                sentAt: '',
-                roomId: ''
+                sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
+                roomId: this.props.activeRoomId
             });
         }
     }
@@ -64,13 +75,13 @@ class MessageList extends Component {
                         <div className="content">
                          <a className="user">{message.username}</a>
                         <div className="metadata">
-                            <span className="date">{message.key.sentAt}</span>
+                            <span className="date">{this.timeConverter(message.sentAt)}</span>
                         </div>
                         <div className="text">
                             {message.content}
                         </div> 
                         <div className="actions">
-                                <a classNAme="reply">Reply</a>
+                                <a className="reply">Reply</a>
                                 </div>   
                             </div>
                         </div>
@@ -81,7 +92,7 @@ class MessageList extends Component {
 
 
             </div>
-            <form className="ui reply form ui-reply-form flex-container" onSubmit={(e) => this.sendMessage(e)}>
+            <form className="ui reply form ui-reply-form flex-container" value={this.state.activeRoomId} onSubmit={(e) => this.sendMessage(e)}>
                 <div className="field flex-container mdl-textfield__input">
                     <input placeholder="Type a new message" value={this.state.newMessage} onChange={(e) => this.handleChange(e)} />
                 </div>

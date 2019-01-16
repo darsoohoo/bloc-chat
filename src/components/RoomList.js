@@ -35,10 +35,15 @@ class RoomList extends Component {
                 name: this.state.newRoomName
             });
         }
+
+        
+
     }
 
     render() {
         return (
+
+          
             <section  className="rooms create-room-form">
                 <div className="flex-container create-room-form" >
                     <form className="create-room create-room-form" onSubmit={(e) => this.handleCreate(e)}>
@@ -46,16 +51,17 @@ class RoomList extends Component {
                             <input name="createRoomInput" className="flex-container mdl-textfield__input" type="text" value={this.state.newRoomName} onChange={(e) => this.handleChange(e)}  />
                             <label className="flex-container mdl-textfield__label" htmlFor="createRoomInput">Create a room...</label>
                         </div>
-                        <input type="submit" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addEthereum()" value="Create"/>
+                        <input type="submit" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Create"/>
                     </form>
                     <ul className="mdl-navigation room-list">
 
                         {
                         this.state.rooms.map(room => (
-                        <li className="room-item mdl-navigation__link"
-                        key={room.key}
-                        >
-                            {room.name}
+                        <li 
+                        onClick={() => this.props.setActiveRoom(room)}
+                        className="room-item mdl-navigation__link"
+                        key={room.key}>
+                            {room.name}    
                         </li>
                         )
                     )
@@ -64,6 +70,7 @@ class RoomList extends Component {
                     </ul>   
                 </div>
             </section>
+            
         );
     }
 }

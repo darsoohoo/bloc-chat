@@ -5,9 +5,6 @@ import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
 
 
-
-
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyAxgubQeHtmBk_uEIoqRJVsP08Rd4ffOuo",
@@ -20,9 +17,28 @@ var config = {
   firebase.initializeApp(config);
 
 
-
-
 class App extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            activeRoom: '',
+            activeRoomId: '',
+         
+        };
+
+        this.setActiveRoom = this.setActiveRoom.bind(this);
+ 
+    }
+
+    setActiveRoom(room) {
+        this.setState({
+            activeRoom: room.name,
+            activeRoomId: room.key,
+           
+        });
+       
+    }
 
   render() {
     return (
@@ -41,6 +57,7 @@ class App extends Component {
             <div className="mdl-layout__header-row">
               <div className="mdl-layout-spacer"></div>
               <nav className="mdl-navigation">
+                <h1 className="mdl-navigation__link" id="room-name">Room Name</h1>
                 <a className="mdl-navigation__link" href="">Your Name</a>
                 <a className="mdl-navigation__link" href="">Sign in</a>
               </nav>
@@ -49,11 +66,15 @@ class App extends Component {
           <div className="mdl-layout__drawer">
             <span className="mdl-layout-title">Bloc Chat</span>
             <nav className="mdl-navigation">
-              <RoomList firebase={firebase} />
+              <RoomList firebase={firebase} setActiveRoom={this.setActiveRoom} />
             </nav>
           </div>
           <main className="mdl-layout__content">
-          <MessageList firebase={firebase} />
+          <MessageList 
+            firebase={firebase}
+            activeRoomId={this.state.activeRoomId}
+        
+            />
           </main>
         </div>
       </section>
