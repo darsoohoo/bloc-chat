@@ -10,10 +10,12 @@ class MessageList extends Component {
         this.state = {
             messages: [],
             newMessage: ''
+            
           
 
         };
         this.messagesRef = this.props.firebase.database().ref('messages');
+        
    
     }
 
@@ -44,7 +46,7 @@ class MessageList extends Component {
 
 
 
-    sendMessage(event, activeRoomId) {
+    sendMessage(event) {
         event.preventDefault();
         if(this.state.newMessage !== '') {
             this.messagesRef.push({
@@ -53,7 +55,9 @@ class MessageList extends Component {
                 sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
                 roomId: this.props.activeRoomId
             });
+           
         }
+        
     }
 
     render() {
@@ -99,7 +103,7 @@ class MessageList extends Component {
             </div>
             <form className="ui reply form ui-reply-form flex-container" value={this.state.activeRoomId} onSubmit={(e) => this.sendMessage(e)}>
                 <div className="field flex-container mdl-textfield__input">
-                    <input placeholder="Type a new message" value={this.state.newMessage} onChange={(e) => this.handleChange(e)} />
+                    <input placeholder="Type a new message"  onChange={(e) => this.handleChange(e)} />
                 </div>
  
             </form>
