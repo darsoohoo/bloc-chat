@@ -46,7 +46,7 @@ class RoomList extends Component {
                             <input name="createRoomInput" className="flex-container mdl-textfield__input" type="text" value={this.state.newRoomName} onChange={(e) => this.handleChange(e)}  />
                             <label className="flex-container mdl-textfield__label" htmlFor="createRoomInput">Create a room...</label>
                         </div>
-                        <input type="submit" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" onclick="addEthereum()" value="Create"/>
+                        <input type="submit" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Create"/>
                     </form>
                     <ul className="mdl-navigation room-list">
 

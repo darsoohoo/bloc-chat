@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import faker from 'faker';
 import './MessageList.css';
 
+
 class MessageList extends Component {
     constructor(props) {
         super(props);
@@ -9,16 +10,20 @@ class MessageList extends Component {
         this.state = {
             messages: [],
             newMessage: ''
+          
 
         };
         this.messagesRef = this.props.firebase.database().ref('messages');
+   
     }
 
-    componentDid() {
+    componentDidMount() {
         this.messagesRef.on('child_added', snapshot => {
             const message = snapshot.val();
+
             message.key = snapshot.key;
             this.setState({ messages: this.state.messages.concat( message ) })
+          
         });
     }
 
@@ -28,21 +33,41 @@ class MessageList extends Component {
 
 
 
-    sendMessage(event) {
+ timeConverter(unix_time){
+    const date = new Date(unix_time);
+    const year = date.getUTCFullYear()
+    const month = date.getUTCMonth(unix_time);
+    const day = date.getDate();
+    const hours = date.getHours()< 12 ? date.getHours() : date.getHours() - 12 ;
+    const amPm = date.getHours() < 12 ? " AM" : " PM";
+    const minutes =  date.getMinutes();
+    const formattedTime = (month + 1) + '/' + day + '/' + year + ' ' + hours + ':' + minutes + amPm + ' ' ;
+   
+    return formattedTime;
+  }
+
+
+
+  
+
+
+    
+
+    sendMessage(event, firebase) {
+
+        
         event.preventDefault();
         if(this.state.newMessage !== '') {
             this.messagesRef.push({
                 content: this.state.newMessage,
                 username: '',
-                sentAt: '',
+                sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
                 roomId: ''
             });
         }
     }
 
-
     render() {
-    
 
 
 
@@ -53,28 +78,29 @@ class MessageList extends Component {
                 <h3 className="ui dividing header"></h3>
 
                 {
+             
                     this.state.messages.map(message => (
-
-                        <div className="comment"
+                        <div
+                            className="comment"
                             key={message.key}
                         >
-                        <a href="/" className="avatar">
-                            <img alt="avatar" src={faker.image.avatar()}/>
-                        </a>
-                        <div className="content">
-                         <a className="user">{message.username}</a>
-                        <div className="metadata">
-                            <span className="date">{message.key.sentAt}</span>
-                        </div>
-                        <div className="text">
-                            {message.content}
-                        </div> 
-                        <div className="actions">
-                                <a classNAme="reply">Reply</a>
+                            <a href="/" className="avatar">
+                                <img alt="avatar" src={faker.image.avatar()}/>
+                            </a>
+
+                            <div className="content">
+                                <a className="user">{message.username}</a>
+                                <div className="metadata">
+                                    <span className="date">{this.timeConverter(message.sentAt)}</span>
+                                </div>
+                                <div className="text">
+                                    {message.content}
+                                </div> 
+                                <div className="actions">
+                                    <a className="reply">Reply</a>
                                 </div>   
                             </div>
                         </div>
-
                     ))
               
                 }
