@@ -68,7 +68,9 @@ class MessageList extends Component {
 
                 {
              
-                    this.state.messages.map(message => (
+                    this.state.messages
+                    .filter(message => message.roomId === this.props.activeRoomId)
+                    .map(message => (
                         <div
                             className="comment"
                             key={message.key}
