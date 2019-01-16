@@ -1,46 +1,10 @@
-import React, { Component } from 'react';
+  // Hours part from the timestamp
+  const hours = date.getHours();
 
+  const amPm = date.getHours() < 12 ? " AM" : " PM";
 
-
-class RoomList extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            rooms: [],
-            newRoomName: ''
-        };
-        this.roomsRef = this.props.firebase.database().ref('rooms');
-    }
-
-    componentDidMount() {
-        this.roomsRef.on('child_added', snapshot => {
-          const room = snapshot.val();
-          room.key = snapshot.key;
-          this.setState({ rooms: this.state.rooms.concat( room ) })
-        });
-      }
-
-    render() {
-        return (
-        <section className="mdl-navigation__link" className="rooms">
-        
-
-          {
-            this.state.rooms.map(room => (
-            <div key={room.key}>
-                {room.name}
-            </div>
-
-            )
-        )
-            }
-        </section>
-        );
-    }
-}
-
-
-
-
-export default RoomList;
+  // Minutes part from the timestamp
+  const minutes = "0" + date.getMinutes();
+  
+  // Will display time in 10:30:23 format
+  const formattedTime = hours + ':' + minutes.substr(-2) + amPm;
