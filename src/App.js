@@ -8,6 +8,7 @@ import MessageList from './components/MessageList';
 
 
 
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyAxgubQeHtmBk_uEIoqRJVsP08Rd4ffOuo",
@@ -30,8 +31,10 @@ class App extends Component {
           activeRoom: '',
           activeRoomId: '',
           user: null,
+
         };
         this.setActiveRoom = this.setActiveRoom.bind(this);
+        this.setUser = this.setUser.bind(this);
      
       }
     
@@ -41,6 +44,14 @@ class App extends Component {
           activeRoomId: room.key,
         });
       }
+
+      setUser(user) {
+        this.setState({
+          user: user,
+        });
+      }
+
+     
 
   render() {
     return (
@@ -57,10 +68,13 @@ class App extends Component {
           backgroundRepeat: 'no-repeat',}} >
             <header className="mdl-layout__header mdl-layout__header--transparent">
             <div className="mdl-layout__header-row">
+            <span className="mdl-layout-title"><h2>{this.state.activeRoom}</h2></span>
               <div className="mdl-layout-spacer"></div>
               <nav className="mdl-navigation">
-                <a className="mdl-navigation__link" href="">Your Name</a>
-                <a className="mdl-navigation__link" href="">Sign in</a>
+           
+                
+                <a className="mdl-navigation__link" href="">you name: {this.state.user}</a>
+               
               </nav>
             </div>
           </header>
@@ -71,7 +85,7 @@ class App extends Component {
             </nav>
           </div>
           <main className="mdl-layout__content">
-          <MessageList firebase={firebase} activeRoomId={this.state.activeRoomId} />
+          <MessageList firebase={firebase} activeRoomId={this.state.activeRoomId} user={this.state.user} />
           </main>
         </div>
       </section>

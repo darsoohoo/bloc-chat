@@ -9,7 +9,8 @@ class MessageList extends Component {
 
         this.state = {
             messages: [],
-            newMessage: ''
+            newMessage: '',
+           
           
 
         };
