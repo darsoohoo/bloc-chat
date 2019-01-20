@@ -3,6 +3,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
+import User from './components/User';
 
 
 
@@ -28,14 +29,15 @@ class App extends Component {
         super(props);
     
         this.state = {
-          activeRoom: '',
-          activeRoomId: '',
-          user: null,
+          activeRoom: null,
+          activeRoomId: null,
+          isSignedIn: false,
+          user: 'Guest'
 
         };
         this.setActiveRoom = this.setActiveRoom.bind(this);
         this.setUser = this.setUser.bind(this);
-     
+
       }
     
       setActiveRoom(room) {
@@ -47,9 +49,10 @@ class App extends Component {
 
       setUser(user) {
         this.setState({
-          user: user,
+          user: user
         });
       }
+
 
      
 
@@ -72,8 +75,8 @@ class App extends Component {
               <div className="mdl-layout-spacer"></div>
               <nav className="mdl-navigation">
            
-                
-                <a className="mdl-navigation__link" href="">you name: {this.state.user}</a>
+                <User firebase={firebase} user={this.state.user} setUser={(user) => this.setUser(user)} isSignedIn={this.state.IsSignedIn} className="mdl-navigation__link" />
+         
                
               </nav>
             </div>

@@ -5,18 +5,32 @@ class User extends Component {
         super(props);
 
         this.state = {
-            signedIn: false
+            user: 'Guest',
         };
+      
+
+    }
+
+    componentDidMount() {
+        this.props.firebase.auth().onAuthStateChanged(user => {
+            this.props.setUser(user);
+        });
     }
 
 
-    signInWithPopup(e) {
+    signIn() {
         const provider = new this.props.firebase.auth.GoogleAuthProvider();
-        this.props.firebase.auth().signInWithPopup( provider );
+        this.props.firebase
+            .auth()
+            .signInWithPopup(provider);
     }
 
-    signOut(e) {
-        this.props.firebase.auth().signOut();
+    signOut() {
+
+        this.props.firebase
+            .auth()
+            .signOut()
+            .then(alert('Sign out successful'));
     }
 
 
@@ -24,8 +38,13 @@ class User extends Component {
     render() {
         return (
             <section>
-                <input type="button" value={this.state.username} onclick={(e) => this.signInWithPopup(e)} >Sign-in</input>
-                <input type="button" onclick={(e) => this.signOut(e)} >Sign-out</input>
+                <div className="mdl-navigation__link" href="">
+                    <a>{this.props.user ? " " + "Hey, " + this.props.user.displayName : ' Guest'}</a>
+                    {this.props.user ? <a eventKey="2" onClick={() => this.signOut()}>Sign Out</a> : <a eventKey="2" onClick={() => this.signIn()}>Sign In</a>}
+                </div>
+       
+            
+        
 
 
 
