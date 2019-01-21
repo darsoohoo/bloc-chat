@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import faker from 'faker';
 import './MessageList.css';
+
 
 
 class MessageList extends Component {
@@ -10,14 +10,10 @@ class MessageList extends Component {
         this.state = {
             messages: [],
             newMessage: '',
-            
-           
-          
 
         };
         this.messagesRef = this.props.firebase.database().ref('messages');
-
-   
+      
     }
 
     componentDidMount() {
@@ -52,10 +48,13 @@ class MessageList extends Component {
                 content: this.state.newMessage,
                 username: this.props.user ? this.props.user.displayName : 'Guest',
                 sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
-                roomId: this.props.activeRoomId
+                roomId: this.props.activeRoomId,
+                photoURL: this.props.user.photoURL,
             });
         }
     }
+
+
 
     render() {
 
@@ -77,7 +76,7 @@ class MessageList extends Component {
                             key={message.key}
                         >
                         <a href="/" className="avatar">
-                            <img alt="avatar" src={faker.image.avatar()}/>
+                            <img alt="avatar" src={message.photoURL}/>
                         </a>
                         <div className="content">
                                 <a className="user">{this.props.user ?  message.username : 'Guest'}</a>
@@ -86,7 +85,9 @@ class MessageList extends Component {
                         </div>
                         <div className="text">
                             {message.content}
+                            
                         </div> 
+                    
                         
                         </div>
                         </div>
@@ -102,6 +103,7 @@ class MessageList extends Component {
                 </div>
  
             </form>
+       
             </section>
         );
     }

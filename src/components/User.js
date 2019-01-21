@@ -8,7 +8,7 @@ class User extends Component {
         this.state = {
             user: 'Guest',
         };
-      
+        this.usersRef = this.props.firebase.database().ref('users');
 
     }
 
@@ -27,11 +27,13 @@ class User extends Component {
     }
 
     signOut() {
-
         this.props.firebase
             .auth()
             .signOut()
             .then(alert('Sign out successful'));
+       {
+            
+        }
     }
 
 
@@ -40,7 +42,9 @@ class User extends Component {
         return (
             <section>
                 <div className="username_container">
-                    <a  href="#" className="display-name">{this.props.user ? "" + this.props.user.displayName : ''}</a>
+                    <a  href="#" className="display-name">
+                      {this.props.user ? "" + this.props.user.displayName : ''}
+                    </a>
                     {this.props.user ? <a href="#" className="signin-status" onClick={() => this.signOut()}>Sign Out</a> : <a href="#" className="signin-status" onClick={() => this.signIn()}>Sign In</a>}  
                 </div>
             </section>

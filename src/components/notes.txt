@@ -1,0 +1,10 @@
+
+TODO: 
+As a user, I want to delete rooms	1
+As a user, I want to rename rooms	2
+As a user, I want to delete messages	1
+As a user, I want to edit messages	2
+As a developer, I want to create admin users	3
+As an admin, I want to create private rooms for authorized participants	3
+As a user, I want to see if another chat room participant is online	2
+As a user, I want to see when another user is typing a message in my current chat room	3
