@@ -40,10 +40,8 @@ class User extends Component {
         return (
             <section>
                 <div className="username_container">
-                    <a  className="display-name">{this.props.user ? "" + this.props.user.displayName : ''}</a>
-                    {this.props.user ? <a className="signin-status" onClick={() => this.signOut()}>Sign Out</a> : <a className="signin-status" onClick={() => this.signIn()}>Sign In</a>}
-              
-                   
+                    <a  href="#" className="display-name">{this.props.user ? "" + this.props.user.displayName : ''}</a>
+                    {this.props.user ? <a href="#" className="signin-status" onClick={() => this.signOut()}>Sign Out</a> : <a href="#" className="signin-status" onClick={() => this.signIn()}>Sign In</a>}  
                 </div>
             </section>
 

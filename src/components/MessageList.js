@@ -80,7 +80,7 @@ class MessageList extends Component {
                             <img alt="avatar" src={faker.image.avatar()}/>
                         </a>
                         <div className="content">
-                                <a className="user">{this.props.user ? "" + message.username : 'Guest'}</a>
+                                <a className="user">{this.props.user ?  message.username : 'Guest'}</a>
                         <div className="metadata">
                             <span className="date">{this.timeConverter(message.sentAt)}</span>
                         </div>
