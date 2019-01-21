@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import './User.css'
 
 class User extends Component {
     constructor(props) {
@@ -38,16 +39,12 @@ class User extends Component {
     render() {
         return (
             <section>
-                <div className="mdl-navigation__link" href="">
-                    <a>{this.props.user ? " " + "Hey, " + this.props.user.displayName : ' Guest'}</a>
-                    {this.props.user ? <a eventKey="2" onClick={() => this.signOut()}>Sign Out</a> : <a eventKey="2" onClick={() => this.signIn()}>Sign In</a>}
+                <div className="username_container">
+                    <a  className="display-name">{this.props.user ? "" + this.props.user.displayName : ''}</a>
+                    {this.props.user ? <a className="signin-status" onClick={() => this.signOut()}>Sign Out</a> : <a className="signin-status" onClick={() => this.signIn()}>Sign In</a>}
+              
+                   
                 </div>
-       
-            
-        
-
-
-
             </section>
 
         );

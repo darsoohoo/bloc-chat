@@ -58,9 +58,7 @@ class App extends Component {
 
   render() {
     return (
-     
-      
- 
+   
       <section >
         <div 
           className="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
@@ -68,7 +66,7 @@ class App extends Component {
           style={{  backgroundImage: "url(" + "http://i.imgur.com/HUgVfve.png" + ")",
           backgroundPosition: 'center',
           backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',}} >
+          backgroundRepeat: 'no-repeat'}} >
             <header className="mdl-layout__header mdl-layout__header--transparent">
             <div className="mdl-layout__header-row">
             <span className="mdl-layout-title"><h2>{this.state.activeRoom}</h2></span>
@@ -84,11 +82,11 @@ class App extends Component {
           <div className="mdl-layout__drawer">
             <span className="mdl-layout-title">Bloc Chat</span>
             <nav className="mdl-navigation">
-              <RoomList firebase={firebase} setActiveRoom={this.setActiveRoom} />
+              <RoomList firebase={firebase} setActiveRoom={this.setActiveRoom} user={this.state.user} setUser={(user) => this.setUser(user)} />
             </nav>
           </div>
           <main className="mdl-layout__content">
-          <MessageList firebase={firebase} activeRoomId={this.state.activeRoomId} user={this.state.user} />
+            <MessageList firebase={firebase} activeRoomId={this.state.activeRoomId} user={this.state.user} setUser={(user) => this.setUser(user)} />
           </main>
         </div>
       </section>

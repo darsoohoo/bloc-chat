@@ -1,0 +1,15 @@
+.username_container{
+  display: grid;
+}
+
+.display-name{
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.signin-status{
+  grid-column: 1;
+  
+}
+
+
