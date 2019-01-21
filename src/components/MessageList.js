@@ -10,21 +10,21 @@ class MessageList extends Component {
         this.state = {
             messages: [],
             newMessage: '',
+            
            
           
 
         };
         this.messagesRef = this.props.firebase.database().ref('messages');
+
    
     }
 
     componentDidMount() {
         this.messagesRef.on('child_added', snapshot => {
             const message = snapshot.val();
-
             message.key = snapshot.key;
             this.setState({ messages: this.state.messages.concat( message ) })
-          
         });
     }
 
@@ -45,12 +45,12 @@ class MessageList extends Component {
 
 
 
-    sendMessage(event, activeRoomId) {
+    sendMessage(event) {
         event.preventDefault();
         if(this.state.newMessage !== '') {
             this.messagesRef.push({
                 content: this.state.newMessage,
-                username: '',
+                username: this.props.user ? this.props.user.displayName : 'Guest',
                 sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
                 roomId: this.props.activeRoomId
             });
@@ -80,7 +80,7 @@ class MessageList extends Component {
                             <img alt="avatar" src={faker.image.avatar()}/>
                         </a>
                         <div className="content">
-                                <a className="user">{this.props.user ? "" + this.props.user.displayName : 'Guest'}</a>
+                                <a className="user">{this.props.user ? "" + message.username : 'Guest'}</a>
                         <div className="metadata">
                             <span className="date">{this.timeConverter(message.sentAt)}</span>
                         </div>

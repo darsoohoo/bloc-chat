@@ -73,7 +73,7 @@ class App extends Component {
               <div className="mdl-layout-spacer"></div>
               <nav className="mdl-navigation">
            
-                <User firebase={firebase} user={this.state.user} setUser={(user) => this.setUser(user)} isSignedIn={this.state.IsSignedIn} className="mdl-navigation__link" />
+                <User firebase={firebase} user={this.state.user} setUser={(user) => this.setUser(user)}  className="mdl-navigation__link" />
          
                
               </nav>
