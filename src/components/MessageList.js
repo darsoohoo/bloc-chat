@@ -49,7 +49,7 @@ class MessageList extends Component {
                 username: this.props.user ? this.props.user.displayName : 'Guest',
                 sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
                 roomId: this.props.activeRoomId,
-                photoURL: this.props.user.photoURL,
+                photoURL: this.props.user ? this.props.user.photoURL : '',
             });
         }
     }
