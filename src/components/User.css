@@ -12,4 +12,10 @@
   
 }
 
+.signin-buttons{
+  grid-column: 1;
+  margin-top: 70px;
+  
+}
+
 

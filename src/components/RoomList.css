@@ -3,7 +3,25 @@
     -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    padding: 1px 32px;
+    padding: 1px 35px 0px;
 }
 
+#create-button{
+      margin: 0px 35px 1px ;
+      padding: 1px 35px 0px ;
+      
+}
+
+#create-room-label{
    
+      margin: 15px 10px 5px 10px ;
+    padding:  0px 1px 16px 10px;
+
+}
+   
+#create-room-input{
+      margin: 5px 5px 10px 10px;
+     padding: 1px 35px 0px 10px;
+    
+
+}

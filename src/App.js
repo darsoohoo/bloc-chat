@@ -22,9 +22,6 @@ var config = {
   };
   firebase.initializeApp(config);
 
-
-
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -34,11 +31,11 @@ class App extends Component {
           activeRoomId: null,
           isSignedIn: false,
           user: 'Guest'
-
         };
+
+
         this.setActiveRoom = this.setActiveRoom.bind(this);
         this.setUser = this.setUser.bind(this);
-
       }
     
       setActiveRoom(room) {
@@ -77,7 +74,8 @@ class App extends Component {
                 firebase={firebase} 
                 user={this.state.user} 
                 setUser={(user) => this.setUser(user)}  
-                className="mdl-navigation__link" />
+                className="mdl-navigation__link"
+                 />
               </nav>
             </div>
           </header>
