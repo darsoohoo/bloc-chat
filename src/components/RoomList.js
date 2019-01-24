@@ -48,11 +48,11 @@ class RoomList extends Component {
             <section  className="rooms create-room-form">
                 <div className="flex-container create-room-form" >
                     <form className="create-room create-room-form" onSubmit={(e) => this.handleCreate(e)}>
-                        <div id="create-room-label" className="flex-container mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                            <label className="flex-container mdl-textfield__label" htmlFor="createRoomInput">Create a room...</label>
-                            <input id="create-room-input" name="createRoomInput" className="flex-container mdl-textfield__input " type="text" value={this.state.newRoomName} onChange={(e) => this.handleChange(e)}  /> 
+                        <div id="create-room-label" className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <label className="mdl-textfield__label" htmlFor="createRoomInput">Create a room...</label>
+                            <input id="create-room-input" name="createRoomInput" className="mdl-textfield__input" type="text" value={this.state.newRoomName} onChange={(e) => this.handleChange(e)}  /> 
                         </div>
-                        <input id="create-button" type="submit" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Create"/>
+                        <button id="create-button" type="submit" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Create</button>
                     </form>
                     <ul className="mdl-navigation room-list">
 

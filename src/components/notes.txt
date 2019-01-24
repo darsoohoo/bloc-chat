@@ -13,6 +13,8 @@ As a user, I want to see when another user is typing a message in my current cha
 
 Questions:
 
-1. I'm not supposed to edit the min.css file right? 
+1. How can come my ripple affect isnt working?
 
 2. Is there a limit to the amount of levels i can past down a prop?
+
+3. 
