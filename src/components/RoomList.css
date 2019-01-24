@@ -14,7 +14,11 @@
 
 #create-room-label{
    
-      margin: 15px 10px 5px 10px ;
+    
+      margin-bottom: 15px;
+      margin-top: 10px;
+      margin-left: 15px;
+      margin-right: 10px;
     padding:  0px 1px 16px 10px;
 
 }
