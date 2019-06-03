@@ -51,7 +51,9 @@ class MessageList extends Component {
                 roomId: this.props.activeRoomId,
                 photoURL: this.props.user.photoURL,
             });
+           
         }
+   
     }
 
 
