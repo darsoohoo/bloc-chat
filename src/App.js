@@ -66,7 +66,7 @@ class App extends Component {
           backgroundRepeat: 'no-repeat'}} >
             <header className="mdl-layout__header">
             <div className="mdl-layout__header-row">
-            <span class="mdl-layout-title">Bartenders 2U</span>
+            <span class="mdl-layout-title">Float Chat</span>
               <div className="mdl-layout-spacer"></div>
               <nav className="mdl-navigation">
                 <User 
@@ -79,7 +79,7 @@ class App extends Component {
             </div>
           </header>
           <div className="mdl-layout__drawer">
-            <span className="mdl-layout-title">Bartenders 2U</span>
+            <span className="mdl-layout-title">Float Chat</span>
             <nav className="mdl-navigation">
               <RoomList 
               firebase={firebase} 
