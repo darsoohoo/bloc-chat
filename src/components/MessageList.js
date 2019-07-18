@@ -49,9 +49,9 @@ class MessageList extends Component {
                 username: this.props.user ? this.props.user.displayName : 'Guest',
                 sentAt: this.props.firebase.database.ServerValue.TIMESTAMP,
                 roomId: this.props.activeRoomId,
-                photoURL: this.props.user.photoURL,
+                photoURL: this.props.user ? this.props.user.photoURL : ''
             });
-           
+            this.setState({newMessage: '' })
         }
    
     }
@@ -59,9 +59,6 @@ class MessageList extends Component {
 
 
     render() {
-
-
-
 
         return (
             <section className="ui comments" >   
