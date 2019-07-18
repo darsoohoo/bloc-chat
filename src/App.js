@@ -80,7 +80,7 @@ class App extends Component {
             </div>
           </header>
           <div className="mdl-layout__drawer">
-            <span className="mdl-layout-title">Bloc Chat</span>
+            <span className="mdl-layout-title">Cloud Chat</span>
             <nav className="mdl-navigation">
               <RoomList 
               firebase={firebase} 

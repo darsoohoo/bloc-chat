@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './RoomList.css'
 
 
-
 class RoomList extends Component {
     constructor(props) {
         super(props);
@@ -41,18 +40,22 @@ class RoomList extends Component {
     }
 
     render() {
+
+
+    
         return (
 
           
             <section  className="rooms create-room-form">
                 <div className="flex-container create-room-form" >
-                    <form className="create-room create-room-form" onSubmit={(e) => this.handleCreate(e)}>
-                        <div id="create-room-label" className="flex-container mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
-                            <input id="create-room-input" name="createRoomInput" className="flex-container mdl-textfield__input " type="text" value={this.state.newRoomName} onChange={(e) => this.handleChange(e)}  />
-                            <label className="flex-container mdl-textfield__label" htmlFor="createRoomInput">Create a room...</label>
+                    <form  onSubmit={(e) => this.handleCreate(e)}>
+                        <div id="room-input-container" className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                            <input className="mdl-textfield__input" type="text" id="room-input" value={this.state.newRoomName} onChange={(e) => this.handleChange(e)}/>
+                            <label className="mdl-textfield__label" for="sample3">Create a room...</label>
                         </div>
                         <input id="create-button" type="submit" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" value="Create"/>
                     </form>
+
                     <ul className="mdl-navigation room-list">
 
                         {
