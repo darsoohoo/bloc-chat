@@ -5,10 +5,12 @@
 .display-name{
   grid-column: 1;
   grid-row: 1;
+  color: black;
 }
 
 .signin-status{
   grid-column: 1;
+  color: black;
   
 }
 

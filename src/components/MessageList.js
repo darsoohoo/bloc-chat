@@ -61,8 +61,9 @@ class MessageList extends Component {
     render() {
 
         return (
-            <section className="ui comments" >   
+            <section className="ui comments comments-section" >   
             <div className="ui comments message-list">
+                <h3>{this.props.activeRoom}</h3>
                 <h3 className="ui dividing header"></h3>
 
                 {

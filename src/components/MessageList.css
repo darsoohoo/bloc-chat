@@ -4,10 +4,12 @@
     -ms-flex-negative: 0;
     flex-shrink: 0;
     padding: 10px 20px;
-    margin: 0;
-
+   
 }
 
+.comments-section{
+    margin-top: 70px!important;
+}
 
 .ui-reply-form {
     display: block;

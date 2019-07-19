@@ -78,9 +78,10 @@ class App extends Component {
               </nav>
             </div>
           </header>
+          <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
           <div className="mdl-layout__drawer">
             <span className="mdl-layout-title">Cloud Chat</span>
-            <nav className="mdl-navigation">
+            <nav className="mdl-navigation ">
               <RoomList 
               firebase={firebase} 
               setActiveRoom={this.setActiveRoom} 
@@ -91,11 +92,12 @@ class App extends Component {
           <main className="mdl-layout__content">
             <MessageList 
             firebase={firebase} 
+            activeRoom={this.state.activeRoom}
             activeRoomId={this.state.activeRoomId} 
             user={this.state.user} 
             setUser={(user) => this.setUser(user)} />
-          
           </main>
+          </div>
         </div>
       </section>
           );
